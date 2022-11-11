@@ -29,6 +29,4 @@ set(headers
     log.h
 )
 
-set(CMAKE_CXX_FLAGS -pthread)
-
 add_executable(final ${sources} ${headers})
