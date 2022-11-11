@@ -7,6 +7,8 @@ project(multithreading_final)
 # lots of warnings and all warnings as errors
 add_compile_options(-Wall -Wextra -pedantic -Werror -std=c++11)
 
+set(CMAKE_CXX_FLAGS -pthread)
+
 set(sources
     main.cpp
     utils.cpp
@@ -26,5 +28,7 @@ set(headers
     request.h
     log.h
 )
+
+set(CMAKE_CXX_FLAGS -pthread)
 
 add_executable(final ${sources} ${headers})
