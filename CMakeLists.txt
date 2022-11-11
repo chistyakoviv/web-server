@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 project(multithreading_final)
 
 # lots of warnings and all warnings as errors
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+add_compile_options(-Wall -Wextra -pedantic -Werror -std=c++11)
 
 set(sources
     main.cpp
