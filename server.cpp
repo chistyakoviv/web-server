@@ -75,7 +75,9 @@ void Server::Listen(int port) {
             } else {
                 epoll_event event = events[i];
                 pool.Push([&, event]() {
-                    static char buf[BUF_SIZE];
+                    // Static variables are shared between threads (static char buf[BUF_SIZE] is not applicable here),
+                    // so we need to allocate a new buffer
+                    char buf[BUF_SIZE];
                     int received = recv(event.data.fd, buf, BUF_SIZE, MSG_NOSIGNAL);
                     if (received == 0 && errno != EAGAIN) {
                         // Some error ocurred
